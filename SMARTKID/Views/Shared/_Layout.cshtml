@@ -10,13 +10,26 @@
     <!--====== Icon ======-->
     <link rel="shortcut icon" href="~/favicon.png" type="image/x-icon">
 
-    <!--====== bootstrap css file ======-->
-    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
-    <!--====== owl carousel css file ======-->
-    <link rel="stylesheet" href="~/lib/owl.carousel/assets/owl.carousel.css">
-    <link rel="stylesheet" href="~/lib/owl.carousel/assets/owl.theme.default.css">
-    <!--====== fontawsome style file ======-->
-    <link rel="stylesheet" href="~/lib/fontawesome/css/all.css">
+    <environment include="Development">
+        <!--====== bootstrap css file ======-->
+        <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
+        <!--====== owl carousel css file ======-->
+        <link rel="stylesheet" href="~/lib/owl.carousel/assets/owl.carousel.css">
+        <link rel="stylesheet" href="~/lib/owl.carousel/assets/owl.theme.default.css">
+        <!--====== fontawsome style file ======-->
+        <link rel="stylesheet" href="~/lib/fontawesome/css/all.css">
+    </environment>
+
+    <environment exclude="Development">
+        <!--====== bootstrap css file ======-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <!--====== owl carousel css file ======-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!--====== fontawsome style file ======-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </environment>
+
     <!--====== custom style file ======-->
     <link rel="stylesheet" href="~/css/libs.css">
     <link rel="stylesheet" href="~/css/style.css">
@@ -92,9 +105,9 @@
                                     <div class="dropdown-items">
                                         <ul class="navbar-nav">
                                             <li>
-                                                <a class="" 
-                                                   asp-route-id="@user.Id" 
-                                                   asp-action="EditAccount" 
+                                                <a class=""
+                                                   asp-route-id="@user.Id"
+                                                   asp-action="EditAccount"
                                                    asp-controller="Account">Edit Account</a>
                                             </li>
                                             <li>
@@ -156,7 +169,7 @@
                         <div id="hide-menu-icon" class=""><i class="fas fa-times"></i></div>
                         <div class="logo-mobile-container">
                             <div class="logo-icon">
-                                <a  asp-action="Index" asp-controller="Home">SMART<em>KID</em></a>
+                                <a asp-action="Index" asp-controller="Home">SMART<em>KID</em></a>
                             </div>
                         </div>
                         <div class="navbar-container">
@@ -218,7 +231,7 @@
                 <div class="col-12 col-md-6">
                     <div class="main-intro">
                         <div class="logo-icon">
-                            <a  asp-action="Index" asp-controller="Home">SMART<em>KID</em></a>
+                            <a asp-action="Index" asp-controller="Home">SMART<em>KID</em></a>
                         </div>
                         <div class="text">
                             <p>STARTKID is a very suit opportunity for your child to begin to understand that school is a place for learning and working. .</p>
@@ -289,21 +302,42 @@
         <button class="back-to-top"><i class="fa fa-angle-up"></i></button>
     </section>
     <!--============ BACK TO TP PART ENDS ============-->
-    <!--====== jquery js file ======-->
-    <script type="text/javascript" src="~/lib/jquery/jquery.js"></script>
-    <!--====== validation client side js files ======-->
-    <script src="~/lib/jquery-validate/jquery.validate.js"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
-    <!--====== popper js that is required to bootstrap tp funtion good ======-->
-    <script type="text/javascript" src="~/lib/popper/umd/popper.js"></script>
-    <!--====== bootstrap js file ======-->
-    <script type="text/javascript" src="~/lib/bootstrap/js/bootstrap.js"></script>
-    <!--====== particles js file ======-->
-    <script type="text/javascript" src="~/lib/particles.js/particles.js"></script>
-    <!--====== owl carousel js file ======-->
-    <script type="text/javascript" src="~/lib/owl.carousel/owl.carousel.js"></script>
-    <!--====== isotope js file ======-->
-    <script type="text/javascript" src="~/lib/jquery.isotope/isotope.pkgd.js"></script>
+
+    <environment include="Development">
+        <!--====== jquery js file ======-->
+        <script type="text/javascript" src="~/lib/jquery/jquery.js"></script>
+        <!--====== validation client side js files ======-->
+        <script src="~/lib/jquery-validate/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+        <!--====== popper js that is required to bootstrap tp funtion good ======-->
+        <script type="text/javascript" src="~/lib/popper/umd/popper.js"></script>
+        <!--====== bootstrap js file ======-->
+        <script type="text/javascript" src="~/lib/bootstrap/js/bootstrap.js"></script>
+        <!--====== particles js file ======-->
+        <script type="text/javascript" src="~/lib/particles.js/particles.js"></script>
+        <!--====== owl carousel js file ======-->
+        <script type="text/javascript" src="~/lib/owl.carousel/owl.carousel.js"></script>
+        <!--====== isotope js file ======-->
+        <script type="text/javascript" src="~/lib/jquery.isotope/isotope.pkgd.js"></script>
+    </environment>
+
+    <environment exclude="Development">
+        <!--====== jquery js file ======-->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <!--====== validation client side js files ======-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js" integrity="sha512-o6XqxgrUsKmchwy9G5VRNWSSxTS4Urr4loO6/0hYdpWmFUfHqGzawGxeQGMDqYzxjY9sbktPbNlkIQJWagVZQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!--====== popper js that is required to bootstrap tp funtion good ======-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js" integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!--====== bootstrap js file ======-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+        <!--====== particles js file ======-->
+        <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+        <!--====== owl carousel js file ======-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!--====== isotope js file ======-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha512-Zq2BOxyhvnRFXu0+WE6ojpZLOU2jdnqbrM1hmVdGzyeCa1DgM3X5Q4A/Is9xA1IkbUeDd7755dNNI/PzSf2Pew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </environment>
 
     <!--====== triggers of all js libraries files ======-->
     <script type="text/javascript" src="~/js/libs.js"></script>
