@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>5f68e58f-820b-419b-a229-a38cdd35caf3</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Logs\**" />
+    <Compile Remove="wwwroot\Images\AppUsers\**" />
+    <Content Remove="Logs\**" />
+    <Content Remove="wwwroot\Images\AppUsers\**" />
+    <EmbeddedResource Remove="Logs\**" />
+    <EmbeddedResource Remove="wwwroot\Images\AppUsers\**" />
+    <None Remove="Logs\**" />
+    <None Remove="wwwroot\Images\AppUsers\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="5.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="5.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Twitter" Version="5.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+    <PackageReference Include="NLog.Web.AspNetCore" Version="4.12.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Extentions\" />
+    <Folder Include="Views\Administration\" />
+    <Folder Include="wwwroot\fonts\" />
+    <Folder Include="wwwroot\Images\Statics\guardians\" />
+    <Folder Include="wwwroot\Images\Statics\team\" />
+    <Folder Include="wwwroot\Images\Users\Kids\" />
+    <Folder Include="wwwroot\Images\Users\Guardians\" />
+    <Folder Include="wwwroot\Images\Users\GuardianCINs\" />
+    <Folder Include="wwwroot\lib\Datetimepicker\build\" />
+    <Folder Include="wwwroot\Logs\" />
+  </ItemGroup>
+
+</Project>

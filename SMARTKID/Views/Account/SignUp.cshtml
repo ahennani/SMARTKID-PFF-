@@ -1,0 +1,172 @@
+﻿@model AccountSignUpViewModel
+@{
+    ViewBag.Title = "SignUp";
+}
+
+<!--============ BACK  Sign Up Form START ============-->
+<section id="signup-form" class="signin-form d-block first-element">
+    <div class="container">
+        <div class="row ronded-container">
+
+            <article class="col-12 col-lg-6 px-0">
+                <div id="sign-up-form-container" class="form-container col">
+                    <form class="form" action="" method="POST">
+                        <div class="form-header">
+                            <h2 class="form-title">Sign Up</h2>
+                        </div>
+
+                        <div class="form-body">
+                            <div class="form-group">
+                                <label asp-for="@Model.FirstName">
+                                    <span>@Html.DisplayNameFor(m => m.FirstName)</span>
+                                    <i class="fa fa-user"></i>
+                                    <span class="email input">
+                                        <input asp-for="@Model.FirstName" class="form-control" placeholder="Type Your First Name">
+                                    </span>
+                                </label>
+                                <span class="validate text-danger d-block" asp-validation-for="@Model.FirstName"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="@Model.LastName">
+                                    <span>@Html.DisplayNameFor(m => m.LastName)</span>
+                                    <i class="fa fa-users"></i>
+                                    <span class="email input">
+                                        <input asp-for="@Model.LastName" class="form-control" placeholder="Type your Your Name">
+                                    </span>
+                                </label>
+                                <span class="validate text-danger d-block" asp-validation-for="@Model.LastName"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="">
+                                    <span class="span-gendre col-form-label">@Html.DisplayNameFor(m => m.Gendre)</span>
+                                    <span class="form-check form-check-inline">
+                                        <input asp-for="@Model.Gendre"
+                                               class="form-check-input"
+                                               type="radio"
+                                               id="gender_boy"
+                                               value="Male" checked>
+                                        <label class="form-check-label" for="gender_boy">Male</label>
+                                    </span>
+                                    <span class="form-check form-check-inline">
+                                        <input asp-for="@Model.Gendre"
+                                               class="form-check-input" 
+                                               type="radio"
+                                               id="gender_girl" 
+                                               value="Female">
+                                        <label class="form-check-label" for="gender_girl">Female</label>
+                                    </span>
+                                </label>
+                                <span class="validate text-danger d-block" asp-validation-for="@Model.Gendre"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="@Model.DateOfBirth">
+                                    <span>@Html.DisplayNameFor(m => m.DateOfBirth)</span>
+                                    <i class="fas fa-calendar"></i>
+                                    <span class="email input">
+                                        <input asp-for="@Model.DateOfBirth" class="form-control">
+                                    </span>
+                                </label>
+                                <span class="validate text-danger d-block" asp-validation-for="@Model.DateOfBirth"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="@Model.Email">
+                                    <span>Email Address</span>
+                                    <i class="fas fa-envelope-open"></i>
+                                    <span class="email input">
+                                        <input asp-for="@Model.Email" class="form-control" placeholder="Type your email">
+                                    </span>
+                                </label>
+                                <span class="validate text-danger d-block" asp-validation-for="@Model.Email"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="@Model.Password">
+                                    <span>Password</span>
+                                    <i class="fas fa-unlock-alt"></i>
+                                    <span class="password input">
+                                        <input asp-for="@Model.Password"
+                                               class="form-control"
+                                               placeholder="Type your password"
+                                               autocomplete="on">
+                                    </span>
+                                </label>
+                                <span class="validate text-danger d-block" asp-validation-for="@Model.Password"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="@Model.ConfirmPassword">
+                                    <span>Confirme Password</span>
+                                    <i class="fas fa-unlock-alt"></i>
+                                    <span class="password input">
+                                        <input asp-for="@Model.ConfirmPassword"
+                                               class="form-control"
+                                               placeholder="Confirme your password"
+                                               autocomplete="on">
+                                    </span>
+                                </label>
+                                <span class="validate text-danger d-block" asp-validation-for="@Model.ConfirmPassword"></span>
+                            </div>
+                            
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            
+                            <div class="sub-field">
+                                <!-- <span class="forget-password"><a href="#">Forget you password!?</a></span> -->
+                                <button class="btn btn-primary submit" type="submit">Sign Up</button>
+                            </div>
+
+                        </div>
+                    </form>
+                       
+                    <div>
+                        <div class="form-footer">
+                            <div class="title">Or Sign Up Using</div>
+                            
+                            <div class="social-media-signin">
+                                <form method="post" asp-action="ExternalLogin" asp-route-returnUrl="@Model.ExternalLogins.ReturnUrl">
+                                    <div class="social-media-signin">
+                                        @foreach (var provider in Model.ExternalLogins.ExternalLogins)
+                                        {
+                                            if (@provider.Name.ToLower().Equals("facebook"))
+                                            {
+                                                <div class="media @provider.Name.ToLower()">
+                                                    <button type="submit" class="btn" style="width:auto"
+                                                            name="provider" value="@provider.Name"
+                                                            title="Login usin your @provider.DisplayName account">
+                                                        <i class="fab fa-@provider.Name.ToLower()-f"></i>
+                                                    </button>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="media @provider.Name.ToLower()">
+                                                    <button type="submit" class="btn" style="width:auto"
+                                                            name="provider" value="@provider.Name"
+                                                            title="Login usin your @provider.DisplayName account">
+                                                        <i class="fab fa-@provider.Name.ToLower()"></i>
+                                                    </button>
+                                                </div>
+                                            }
+                                        }
+                                    </div>
+                                </form>
+                            </div>
+                            
+                            <div class="option-signup">
+                                <span class="d-block">Or You Could Login If You Alraedy Signed Up</span>
+                                <span class="mt-2 d-inline-block">
+                                    <a id="to-login-btn" class="btn btn-signup" asp-action="SignIn" asp-controller="Account">SignIn</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="col-12 col-lg-6 px-0">
+                <div class="img-cover">
+                    <div class="register-form-overlay"></div>
+                </div>
+            </article>
+        
+        </div>
+    </div>
+</section>
+<!--============ BACK Sign In Form ENDS ============-->

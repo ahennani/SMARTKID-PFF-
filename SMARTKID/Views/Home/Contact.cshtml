@@ -1,0 +1,100 @@
+﻿@model HomeContactViewModel
+@{
+    ViewData["Title"] = "Contact Us";
+}
+
+<!--============ Contact Form STARTs ============-->
+
+<sectin id="Inscription-new-child">
+    <div class="container">
+        <div class="form-register-container">
+
+            <div class="header">
+                <h2 class="h1">@ViewData["Title"]</h2>
+            </div>
+
+            <form enctype="multipart/form-data" class="form" method="POST">
+
+                <article class="child-info">
+                    <div class="article-body">
+                        <div class="row">
+
+                            <div class="col-12 col-sm-12 col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="FirstName" class="col-form-label">
+                                        @Html.DisplayNameFor(m => m.FirstName)
+                                    </label>
+                                    <div class="">
+                                        <input asp-for="FirstName" class="form-control">
+                                    </div>
+                                    <span class="validate" asp-validation-for="FirstName"></span>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="LastName" class="col-form-label">
+                                        @Html.DisplayNameFor(m => m.LastName)
+                                    </label>
+                                    <div class="">
+                                        <input asp-for="LastName" class="form-control">
+                                    </div>
+                                    <span class="validate" asp-validation-for="LastName"></span>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="Email" class="col-form-label">
+                                        @Html.DisplayNameFor(m => m.Email)
+                                    </label>
+                                    <div class="">
+                                        <input asp-for="Email" class="form-control">
+                                    </div>
+                                    <span class="validate" asp-validation-for="Email"></span>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="Objective" class="col-form-label">
+                                        @Html.DisplayNameFor(m => m.Objective)
+                                    </label>
+                                    <div class="custom-file">
+                                        <input asp-for="Objective" class="form-control" />
+                                    </div>
+                                    <span class="validate" asp-validation-for="Objective"></span>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="Objective" class="col-form-label">
+                                        @Html.DisplayNameFor(m => m.Message)
+                                    </label>
+                                    <textarea asp-for="Message"
+                                              class="form-control"
+                                              rows="10"
+                                              style="width:100%;"></textarea>
+                                    <span class="validate" asp-validation-for="Message"></span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </article>
+
+                <article class="sub-inscreption">
+                    <div class="btn-cotainer">
+                        <button type="submit" class="btn btn-register">Send</button>
+                        <button type="reset" class="btn btn-reset">Clear</button>
+                    </div>
+                </article>
+
+            </form>
+
+            <div class="footer">
+                <div asp-validation-summary="ModelOnly" class="model-validation text-danger"></div>
+            </div>
+
+        </div>
+    </div>
+</sectin>
+
+<!--============ Contact Form ENDs ============-->

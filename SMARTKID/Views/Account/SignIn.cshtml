@@ -1,0 +1,116 @@
+﻿@model AccountSignInViewModel
+@{
+    ViewBag.Title = "SignIn";
+}
+
+<!--============ BACK Sign In & Sign Up Form START ============-->
+<section id="login-form" class="login-form">
+    @*<div id="close-signin-form" class="close-signin-form"><i class="fa fa-times-circle"></i></div>*@
+    <div class="container">
+        <div class="row ronded-container">
+
+            <div class="col-12 col-sm-12 col-md-6 signin-form-container">
+                <article id="sign-in-form-container" class="row form-container">
+                    <form class="form" action="" method="POST">
+
+                        <div class="form-header">
+                            <h2 class="form-title">SignIn</h2>
+                        </div>
+
+                        <div class="form-body">
+                            <div class="form-group">
+                                <label asp-for="@Model.Email">
+                                    <span>@Html.DisplayNameFor(m => m.Email)</span>
+                                    <span class="email input">
+                                        <input asp-for="@Model.Email" class="form-control" placeholder="Type your email">
+                                    </span>
+                                </label>
+                                <span class="validate text-danger d-block" asp-validation-for="@Model.Email"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="@Model.Password">
+                                    <span>@Html.DisplayNameFor(m => m.Password)</span>
+                                    <span class="password input">
+                                        <input asp-for="@Model.Password" class="form-control" placeholder="Type your password">
+                                    </span>
+                                </label>
+                                <span class="validate text-danger d-block" asp-validation-for="@Model.Password"></span>
+                            </div>
+                            <div asp-validation-summary="ModelOnly" class="text-danger validate"></div>
+                            <div class="form-group mb-2">
+                                <div class="form-check form-check-flat form-check-primary">
+                                    <label asp-for="@Model.Remembre" class="form-check-label">
+                                        <input asp-for="@Model.Remembre" class="form-check-input">@Html.DisplayNameFor(m => m.Remembre)
+                                        <i class="input-helper"></i>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="sub-field">
+                                <span class="forget-password"><a href="#">Forget you password!?</a></span>
+                                <button class="btn btn-primary submit" type="submit">SignIn</button>
+                            </div>
+                        </div>
+
+                    </form>
+
+                    <div style="width: 100%;">
+                        <div class="form-footer">
+                            <div class="title">Or Sign In Using</div>
+
+                            <div>
+                                @{
+                                    if (Model.ExternalLogins.ExternalLogins.Count == 0)
+                                    {
+                                        <div>No external logins configured</div>
+                                    }
+                                    else
+                                    {
+                                        <form method="post" asp-action="ExternalLogin" asp-route-returnUrl="@Model.ExternalLogins.ReturnUrl">
+                                            <div class="social-media-signin">
+                                                @foreach (var provider in Model.ExternalLogins.ExternalLogins)
+                                                {
+                                                    if (@provider.Name.ToLower().Equals("facebook"))
+                                                    {
+                                                        <div class="media @provider.Name.ToLower()">
+                                                            <button type="submit" class="btn" style="width:auto"
+                                                                    name="provider" value="@provider.Name"
+                                                                    title="Login usin your @provider.DisplayName account">
+                                                                <i class="fab fa-@provider.Name.ToLower()-f"></i>
+                                                            </button>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="media @provider.Name.ToLower()">
+                                                            <button type="submit" class="btn" style="width:auto"
+                                                                    name="provider" value="@provider.Name"
+                                                                    title="Login usin your @provider.DisplayName account">
+                                                                <i class="fab fa-@provider.Name.ToLower()"></i>
+                                                            </button>
+                                                        </div>
+                                                    }
+                                                }
+                                            </div>
+                                        </form>
+                                    }
+                                }
+                            </div>
+
+                            <div class="option-signup">
+                                <span class="d-block">Or You Could Sign Up</span>
+                                <span class="mt-3 d-inline-block">
+                                    <span class="signup-span"><a asp-action="SignUp" asp-controller="Account" id="signup-btn" class="btn">SIGN UP</a></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </article>
+            </div>
+
+            <div class="col-12 col-sm-12 col-md-6 signin-bg-container cover"></div>
+
+        </div>
+    </div>
+</section>
+<!--============ BACK Sign In Form ENDS ============-->

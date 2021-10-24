@@ -1,0 +1,28 @@
+﻿@model StatusResultViewModel
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Not Found! (url)";
+}
+
+<!--============ Not Found Page START ============-->
+
+<section id="error-view">
+    <div class="container">
+        <article class="error-view-container">
+            <h2 class="error-type">@Model.Num</h2>
+            <p class="error-title">@Model.Title</p>
+            <span class="error-message" style="text-transform:capitalize;">@Model.Message</span>
+        </article>
+        <article class="btn-container">
+            <div class="custome-btn">
+                <a class="btn btn-default" href="./">
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                    <span>Back To Home Page</span>
+                </a>
+            </div>
+        </article>
+    </div>
+</section>
+
+<!--============ Not Found Page ENDS ============-->

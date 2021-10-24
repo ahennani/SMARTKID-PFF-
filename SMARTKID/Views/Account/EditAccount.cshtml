@@ -1,0 +1,149 @@
+﻿@model AccountEditAccountViewModel
+@{
+    ViewData["Title"] = "Edit Account";
+}
+
+<!--============ Contact Form STARTs ============-->
+
+<sectin id="Inscription-new-child">
+    <div class="container">
+        <div class="form-register-container">
+
+            <div class="header">
+                <h2 class="h1">@ViewData["Title"]</h2>
+            </div>
+
+            <form enctype="multipart/form-data" class="form" method="POST">
+
+                <article class="child-info">
+                    <div class="article-body">
+                        <div class="row">
+
+                            <span class="custom-file d-none">
+                                <input asp-for="Id" type="hidden" />
+                            </span>
+
+                            <div class="col-12 col-sm-12 col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="FirstName" class="col-form-label">
+                                        @Html.DisplayNameFor(m => m.FirstName)
+                                    </label>
+                                    <div class="">
+                                        <input asp-for="FirstName" class="form-control">
+                                    </div>
+                                    <span class="validate" asp-validation-for="LastName"></span>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="LastName" class="col-form-label">
+                                        @Html.DisplayNameFor(m => m.LastName)
+                                    </label>
+                                    <div class="">
+                                        <input asp-for="LastName" class="form-control">
+                                    </div>
+                                    <span class="validate" asp-validation-for="LastName"></span>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="Email" class="col-form-label">
+                                        @Html.DisplayNameFor(m => m.Email)
+                                    </label>
+                                    <div class="">
+                                        <input asp-for="Email" class="form-control" disabled>
+                                    </div>
+                                    <span class="validate" asp-validation-for="Email"></span>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="DateOfBirth" class="col-form-label">
+                                        @Html.DisplayNameFor(m => m.DateOfBirth)
+                                    </label>
+                                    <div class="">
+                                        <input asp-for="DateOfBirth" class="form-control">
+                                    </div>
+                                    <span class="validate" asp-validation-for="DateOfBirth"></span>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6">
+                                <div class="form-group">
+                                    <label class="col-form-label">
+                                        @Html.DisplayNameFor(m => m.Gendre)
+                                    </label>
+                                    <span class="d-inline-block ml-4">
+                                        <span class="form-check form-check-inline">
+                                            <input id="gender_boy"
+                                                   asp-for="Gendre"
+                                                   class="form-check-input"
+                                                   type="radio"
+                                                   value="Male">
+                                            <label for="gender_boy" class="form-check-label">Male</label>
+                                        </span>
+                                        <span class="form-check form-check-inline">
+                                            <input id="gender_girl"
+                                                   asp-for="Gendre"
+                                                   class="form-check-input"
+                                                   type="radio"
+                                                   value="Female">
+                                            <label for="gender_girl" class="form-check-label">Female</label>
+                                        </span>
+                                    </span>
+                                    <span class="validate" asp-validation-for="Gendre"></span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="footer">
+                            <div class="header">
+                                <h3>Update Password</h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-sm-12 col-md-6">
+                                    <div class="form-group">
+                                        <label asp-for="Password" class="col-form-label">
+                                            @Html.DisplayNameFor(m => m.Password)
+                                        </label>
+                                        <div class="">
+                                            <input asp-for="Password" class="form-control">
+                                        </div>
+                                        <span class="validate" asp-validation-for="Password"></span>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-6">
+                                    <div class="form-group">
+                                        <label asp-for="ConfirmPassword" class="col-form-label">
+                                            @Html.DisplayNameFor(m => m.ConfirmPassword)
+                                        </label>
+                                        <div class="">
+                                            <input asp-for="ConfirmPassword" class="form-control">
+                                        </div>
+                                        <span class="validate" asp-validation-for="ConfirmPassword"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </article>
+
+                <article class="sub-inscreption">
+                    <div class="btn-cotainer">
+                        <button type="submit" class="btn btn-register">Update</button>
+                        <button type="reset" class="btn btn-reset">Clear</button>
+                    </div>
+                </article>
+
+            </form>
+
+            <div class="footer">
+                <div asp-validation-summary="ModelOnly" class="model-validation text-danger"></div>
+            </div>
+
+        </div>
+    </div>
+</sectin>
+
+<!--============ Contact Form ENDs ============-->
