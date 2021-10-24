@@ -1,0 +1,164 @@
+﻿<header id="head">
+    <section id="contact-info">
+        <div class="container info">
+            <div class="info-right">
+                <span class="text">Need help? Call Us Now :</span>
+                <a class="number" href="tel:+212600862539">6 00 86 25 39</a>
+            </div>
+
+            <div class="info-left">
+                <div class="our-story"><span><a href="#">Our Story</a></span></div>
+                <div class="insc"><span><a asp-action="Inscription" asp-controller="Account">Inscription</a></span></div>
+
+                @{
+                    if (signInManager.IsSignedIn(User))
+                    {
+                        var user = await userManager.FindByEmailAsync(User.Identity.Name);
+                        var FullName = user.UserName;
+                        if (user.FirstName != null && user.LastName != null)
+                        {
+                            string GetName(string name)
+                            {
+                                return $"{name[0].ToString().ToUpper()}{name.Substring(1).ToLower()}";
+                            }
+
+                            var FirstName = GetName(user.FirstName);
+                            var LasttName = GetName(user.LastName);
+                            FullName = $"{FirstName} {LasttName}";
+                        }
+
+                        <div class="account">
+                            <div class="inner-container">
+                                <div class="inner-box">
+                                    <div class="name">
+                                        <span class="username">@FullName</span>
+                                    </div>
+                                    <div class="image">
+                                        @if (user.PhotoPath == null)
+                                        {
+                                            <span class="bg cover">
+                                                <img src="/Images/user.jpg" alt="user" />
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="bg cover" style="background-image: url(@user.PhotoPath)">
+                                                <img src="@user.PhotoPath" alt="@FullName" />
+                                            </span>
+                                        }
+                                    </div>
+                                </div>
+
+                                <div class="dropdown-items">
+                                    <ul class="navbar-nav">
+                                        <li>
+                                            <a class=""
+                                               asp-route-id="@user.Id"
+                                               asp-action="EditAccount"
+                                               asp-controller="Account">Edit Account</a>
+                                        </li>
+                                        <li>
+                                            <a class="" asp-action="" asp-controller="">Help</a>
+                                        </li>
+                                        <li class="nav-item" style="width:100%;">
+                                            <form asp-action="Logout" asp-controller="Account" method="post">
+                                                <button type="submit" class="btn btn-outline-dark btn-info text-white" style="width:100%; border-radius:unset;">
+                                                    Logout
+                                                </button>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="account">
+                            <a id="signin" class="btn signin" asp-action="SignIn" asp-controller="Account">SignIn</a>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </section>
+
+    <section id="navbar" class="navbar">
+        <div class="container main-menu">
+            <div class="logo-icon">
+                <a asp-action="Index" asp-controller="Home">SMART<em>KID</em></a>
+            </div>
+
+            <nav class="main-menu navbar-expand-md navbar-light">
+                <ul class="navigation ">
+                    <li class="dropdown"><a asp-action="Index" asp-controller="Home">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#about-us">About us</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#introduction">Our Introduction</a></li>
+                            <li><a class="dropdown-item" href="#team">Our Team</a></li>
+                            <li><a class="dropdown-item" href="#our-pictures">Pictures</a></li>
+                            <li><a class="dropdown-item" href="#testimonials">They Say About Us</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a href="/#our-programs">Our Programs</a></li>
+                    <li class="dropdown"><a href="/#pricing">Pricing</a></li>
+                    <li><a asp-action="Contact" asp-controller="Home">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div id="show-menu-icon">
+                <i class="fas fa-align-right"></i>
+            </div>
+            <!-- <div id="hide-menu-icon" class=""><i class="fas fa-times"></i></div> -->
+            <div id="mobile-menu" class="invisible">
+                <div class="menu-container">
+                    <div id="hide-menu-icon" class=""><i class="fas fa-times"></i></div>
+                    <div class="logo-mobile-container">
+                        <div class="logo-icon">
+                            <a asp-action="Index" asp-controller="Home">SMART<em>KID</em></a>
+                        </div>
+                    </div>
+                    <div class="navbar-container">
+                        <ul class="navigation ">
+                            <li class="dropdown">
+                                <div class="link">
+                                    <a href="./">Home</a>
+                                </div>
+                            </li>
+                            <li class="dropdown">
+                                <div class="link">
+                                    <a href="#about-us">About us</a>
+                                    <div class="arrow"><i class="fas fa-angle-right"></i></div>
+                                </div>
+                                <div class="item">
+                                    <ul class="mobile-dropdown-menu">
+                                        <li><a class="mobile-dropdown-item" href="#introduction">Our Introduction</a></li>
+                                        <li><a class="mobile-dropdown-item" href="#team">Our Team</a></li>
+                                        <li><a class="mobile-dropdown-item" href="#our-pictures">Pictures</a></li>
+                                        <li><a class="mobile-dropdown-item" href="#testimonials">They Say About Us</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="dropdown"><div class="link"><a href="/#our-programs">Our Programs</a></div></li>
+                            <li class="dropdown"><div class="link"><a href="/#pricing">Pricing</a></div></li>
+                            <li><div class="link"><a asp-action="Inscription" asp-controller="Account">Inscription</a></div></li>
+                            <li><div class="link"><a asp-action="Contact" asp-controller="Home">Contact</a></div></li>
+
+                            <li id="social-links">
+                                <ul class="social-icons">
+                                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                                    <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
+                                    <li><a href="#"><span class="fab fa-github-alt"></span></a></li>
+                                    <li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
+                                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</header>
