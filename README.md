@@ -187,9 +187,9 @@ For the realization of the application I used PC:
 This interface is the home page of the site containing in the middle a "Carousel" which displays photos related to the absence, there is also a bar at the top of the page which contains a series of links among them, Link to Home Page which is used to return to the home page, Contact Link which takes the user to the contact page and lastly SignIn which takes the user to the authentication page and also link to Inscription page.
 <br />
 
-<!-- ![Home Page](/..Screenshot/HomePage.png) -->
+<!-- ![Home Page](/..Screens/HomePage.png) -->
 
-<img src="/..Screenshot/HomePage.png" width="100%" />
+<img src="/..Screens/HomePage.png" width="100%" />
 
 </p>
 </details>
@@ -200,7 +200,7 @@ This interface is the home page of the site containing in the middle a "Carousel
 Allows you to sign in with your account.
 <br />
 
-<img src="/..Screenshot/SignInPage.png" width="100%" />
+<img src="/..Screens/SignInPage.png" width="100%" />
 </p>
 </details>
 
@@ -210,7 +210,7 @@ Allows you to sign in with your account.
 Allows you to send feedback to website owner.
 <br />
 
-<img src="/..Screenshot/ContactPage.png" width="100%" />
+<img src="/..Screens/ContactPage.png" width="100%" />
 </p>
 </details>
 
@@ -220,7 +220,7 @@ Allows you to send feedback to website owner.
 Allows you to register a child in the school.
 <br />
 
-<img src="/..Screenshot/InscriptionPage.png" width="100%" />
+<img src="/..Screens/InscriptionPage.png" width="100%" />
 </p>
 </details>
 
@@ -230,6 +230,6 @@ Allows you to register a child in the school.
 Some pages from the website and what it looks in the mobile phone.
 <br />
 
-<img src="/..Screenshot/ResponsivePages.png" width="100%" />
+<img src="/..Screens/ResponsivePages.png" width="100%" />
 </p>
 </details>
