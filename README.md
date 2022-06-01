@@ -105,7 +105,7 @@ In addition to login system in the previous aspects, also we upload pictures and
     - Properties (the list of entity data).
     - Cardinalities.
 
-![MCD Giagram](/..Screenshot/mcd.png)
+![MCD Giagram](/..Screens/mcd.png)
 
 </p>
 </details>
@@ -115,7 +115,7 @@ In addition to login system in the previous aspects, also we upload pictures and
 <p>
 Uses the content of the previous MCD, but specifies the volume, structure and organization of the data as they can be implemented. For example, at this stage, it is possible to know the exhaustive list of tables that will be created in a relational database.
 
-![MLD Diagram](/..Screenshot/mld.png)
+![MLD Diagram](/..Screens/mld.png)
 
 </p>
 </details>
